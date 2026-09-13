@@ -1,7 +1,17 @@
-# راهنمای تحلیلی و حل جامع مسابقه «رمزالمثل» یکتانت (CTF روز برنامه‌نویس)
+# 🧩 راهنمای تحلیلی و حل جامع مسابقه «رمزالمثل» یکتانت (CTF روز برنامه‌نویس)
 
-[![DevSponsors](https://img.shields.io/badge/DevSponsors-Verified_OSS-6366f1?style=for-the-badge&logo=github)](https://devsponsors.github.io)
-[![Sponsor](https://img.shields.io/badge/Sponsor-DevSponsors_Hub-emerald?style=for-the-badge&logo=github-sponsors)](https://devsponsors.github.io)
+<p align="center">
+  <a href="https://devsponsors.github.io"><img src="https://img.shields.io/badge/DevSponsors-Verified_OSS-6366f1?style=for-the-badge&logo=github" alt="DevSponsors Verified"></a>
+  <a href="https://devsponsors.github.io"><img src="https://img.shields.io/badge/Sponsor-DevSponsors_Hub-emerald?style=for-the-badge&logo=github-sponsors" alt="DevSponsors Sponsor"></a>
+  <a href="https://devsponsors.github.io/mediakit.html"><img src="https://img.shields.io/badge/Infrastructure-DevSponsors_Cloud-ec4899?style=for-the-badge&logo=server" alt="DevSponsors Cloud"></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/CTF-Yektanet_Ramzolmasal_2026-blue?style=flat-square&logo=target" alt="Contest">
+  <img src="https://img.shields.io/badge/Solvers-Python_&_CLI-green?style=flat-square&logo=python" alt="Solvers">
+  <img src="https://img.shields.io/badge/Solved-10%20%2F%2010%20(100%25)-brightgreen?style=flat-square" alt="Progress">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
+</p>
 
 این مخزن شامل راهنمای تحلیلی کامل، متدولوژی مهندسی معکوس، بررسی ضرب‌المثل‌ها و اسکریپت‌های اجرایی پایتون برای **تمامی ۱۰ مرحله از مسابقه آنلاین «رمزالمثل» یکتانت** به مناسبت ۲۵۶امین روز سال (روز برنامه‌نویس) است.
 
@@ -32,6 +42,15 @@
 1. ارزش ریالی و عملیاتی به مراتب سنگین‌تری برای برنامه‌نویسان و تیم‌های فنی نوپا خلق می‌کند.
 2. برندگان را مستقیماً با سرویس‌های پیشرفته یکتانت درگیر کرده و هم‌افزایی واقعی ایجاد می‌نماید.
 3. انگیزه‌ای دوچندان برای رقابت میان توسعه‌دهندگان و بنیان‌گذاران فنی فراهم می‌سازد.
+
+---
+
+## 🔗 لینک‌های رسمی مسابقه و پروژه‌های مرتبط
+
+* 🌐 **وب‌سایت رسمی مسابقه:** [https://256.yektanet.tech/ramzolmasal/](https://256.yektanet.tech/ramzolmasal/)
+* 📢 **کانال تلگرام رسمی یکتانت:** [@yektanet](https://t.me/yektanet)
+* 👥 **گروه تلگرام رسمی مسابقه:** [گروه رمز‌المثل](https://t.me/c/4360992143/661)
+* 🤝 **مخزن دوست و هم‌تیمی عزیز متین بیگی:** [m4tinbeigi-official/yektanet-ramzolmasal-solver](https://github.com/m4tinbeigi-official/yektanet-ramzolmasal-solver)
 
 ---
 
@@ -106,7 +125,7 @@
 ### ۷. خیار (`khiar`)
 - **پرامپت:** «شمارت داره می‌گنده. به ضرب‌المثل‌های فارسی فکر کن.»
 - **سرنخ وضعیت:** «تو رو به بانمکیت می‌شناسن.»
-- **تحلیل:** ضرب‌المثل **«هر چه بگندد نمکش می‌زنند، وای به روزی که بگندد نمک!»**. در رمزنگاری، به مقدار تصادفی افزوده شده به داده برای هش امن، **Salt (نمک)** می‌گویند. سرنخ دوم مشخص می‌کند که نمک، شناسه کاربری شما (`User ID`) است که در خروجی اندپوینت `api/me` نمایش داده می‌شود.
+- **تحلیل:** ضرب‌المثل معروف **«هر چه بگندد نمکش می‌زنند، وای به روزی که بگندد نمک!»**. در رمزنگاری، به مقدار تصادفی افزوده شده به داده برای هش امن، **Salt (نمک)** می‌گویند. سرنخ دوم مشخص می‌کند که نمک، شناسه کاربری شما (`User ID`) است که در خروجی اندپوینت `api/me` نمایش داده می‌شود.
 - **حل:** محاسبه هش SHA-256 از چسباندن شماره موبایل ثبت‌نامی و شناسه کاربری:
   $$\text{Flag} = \text{YEK}\{\text{SHA-256}(\text{PHONE} + \text{USER\_ID})\}$$
 
@@ -147,7 +166,7 @@
      ```text
      21565732109198584667
      ```
-  7. با بازگشایی زیپ و استخراج تصویر `morgh.jpg`، در بنر زیر تصویر عبارت زیر نمایان است:
+  7. پس از بازگشایی زیپ و استخراج فایل `morgh.jpg`، در بنر سفید پایین تصویر عبارت زیر نمایان است:
      ```text
      رمز زیپ: 6ebd1e974a22
      ```
@@ -155,6 +174,10 @@
      ```text
      YEK{21565732109198584667:6ebd1e974a22}
      ```
+- **پرچم نهایی فتح مسابقه:**
+  ```text
+  YEK{21565732109198584667:6ebd1e974a22}
+  ```
 
 ---
 
