@@ -18,11 +18,12 @@ import asyncio
 import websockets
 import hashlib
 import base64
+import os
 import requests
 
 cookies = {
-    'ctf_device': 'c58274c5d2b8e26db7753999381fcabb',
-    'ctf_session': 'b309c321eed958ae047cc0eb89edfea75fdfa4931b4a14f27d0b9bf88ff05a1b'
+    'ctf_device': os.getenv('CTF_DEVICE', 'YOUR_CTF_DEVICE_COOKIE'),
+    'ctf_session': os.getenv('CTF_SESSION', 'YOUR_CTF_SESSION_COOKIE')
 }
 
 async def solve():
@@ -32,7 +33,7 @@ async def solve():
     }
 
     words = []
-    print("Connecting to Kimiagar workshop...")
+    print("در حال اتصال به کارگاه کیمیاگر...")
     async with websockets.connect(uri, additional_headers=headers) as ws:
         while True:
             try:
@@ -42,7 +43,7 @@ async def solve():
                 break
 
     unique_words = sorted(list(set(words)))
-    print(f"Received {len(words)} words, {len(unique_words)} unique.")
+    print(f"تعداد کلمات دریافتی: {len(words)} | تعداد کلمات یکتا: {len(unique_words)}")
 
     gold_words = []
     for w in unique_words:
@@ -52,17 +53,15 @@ async def solve():
             gold_words.append(w)
 
     gold_words_sorted = sorted(gold_words)
-    print(f"Found {len(gold_words_sorted)} gold words (starting with Au):", gold_words_sorted)
+    print(f"تعداد قطعات طلا (هش با پیشوند Au): {len(gold_words_sorted)}")
 
     flag = f"YEK{''.join(gold_words_sorted)}"
-    print(f"Flag: {flag}")
+    print(f"پرچم نهایی کیمیاگر: {flag}")
 
-    # Select challenge
+    # انتخاب چالش و ثبت پرچم
     requests.post('https://256.yektanet.tech/ramzolmasal/api/select', json={'id': 'kimiagar'}, cookies=cookies)
-
-    # Submit flag
     res = requests.post('https://256.yektanet.tech/ramzolmasal/api/submit', json={'flag': flag}, cookies=cookies)
-    print("Submit response:", res.json())
+    print("پاسخ سرور:", res.json())
 
 if __name__ == '__main__':
     asyncio.run(solve())

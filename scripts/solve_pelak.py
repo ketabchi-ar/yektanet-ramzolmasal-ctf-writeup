@@ -20,22 +20,23 @@
      YEK{21565732109198584667:6ebd1e974a22}
 """
 
+import os
 import requests
 
 cookies = {
-    'ctf_device': 'c58274c5d2b8e26db7753999381fcabb',
-    'ctf_session': 'b309c321eed958ae047cc0eb89edfea75fdfa4931b4a14f27d0b9bf88ff05a1b'
+    'ctf_device': os.getenv('CTF_DEVICE', 'YOUR_CTF_DEVICE_COOKIE'),
+    'ctf_session': os.getenv('CTF_SESSION', 'YOUR_CTF_SESSION_COOKIE')
 }
 
 zip_password = "21565732109198584667"
 secret_token = "6ebd1e974a22"
 
 flag = f"YEK{{{zip_password}:{secret_token}}}"
-print(f"Submitting final flag: {flag}")
+print(f"در حال ثبت پرچم نهایی: {flag}")
 
-# Select challenge
+# انتخاب چالش
 requests.post('https://256.yektanet.tech/ramzolmasal/api/select', json={'id': 'pelak'}, cookies=cookies)
 
-# Submit flag
+# ثبت پرچم
 res = requests.post('https://256.yektanet.tech/ramzolmasal/api/submit', json={'flag': flag}, cookies=cookies)
-print("Response:", res.json())
+print("پاسخ سرور:", res.json())
